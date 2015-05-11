@@ -35,7 +35,7 @@ var cats = $(".cat");
 var buttons = $("button");
 
 function hideAll(){
-	for (i=1;i<=cats.length; i++){
+	for (var i=0;i<cats.length; i++){
 		$(cats[i].hide());
 	}
 }
@@ -56,8 +56,11 @@ function counterToCat(idNumber){
 	})
 }
 
-for (i=1; i<= buttons.length; i++){
+for (var i=1; i<=buttons.length; i++){
 	buttonToCat(i);
+}
+
+for (var i=1;i<=cat.length; i++){
 	counterToCat(i);
 }
 
