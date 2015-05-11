@@ -1,0 +1,19 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+} 
+.title{
+	background-color: #33BEBE;
+	font-family: Arial;
+	font-size: 50px;
+	color: white;
+	font-weight: lighter;
+	margin-right: 200px;
+    margin-left: 200px;
+}
+.counter{
+	color:#3bb;
+}
