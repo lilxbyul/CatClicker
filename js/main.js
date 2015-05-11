@@ -30,30 +30,36 @@ var cats = [
 			"counter":"count5"
 		}
 ];
-var HTMLstart = "<div class='cat-entry'></div>"
-var HTMLname = "<div class = 'name'><h2>%data%</h2></div>";
-var HTMLcount = "<p id='%data%'> 0 </p></div>";
-var HTMLimg = "<img id='%iddata%' src='%data%' alt='This is a picture of a cat.'></img>";
 
-/*for (i=0; i<cats.length; i++){
-	var counterName = "#"+cats[0].counter;
-	var formattedName = HTMLname.replace('%data%', cats[0].name);
-	var formattedID = HTMLimg.replace('%iddata%', cats[0].id);
-	var formattedImg = formattedID.replace('%data%', cats[0].pic);
-	var formattedCount = HTMLcount.replace('%data%', cats[0].counter);
-	var catID = "#'" +  cats[0].id+"'";
-	var formattedClicker = '<script>$('+catID+
-		').click(function(e) {var count =Number($('+counterName+
-		').html())+1;$('+counterName+').html(count);});</script>';
+var cats = $(".cat");
+var buttons = $("button");
 
-	$('#cats').append(HTMLstart);
-	$('#cat-entry:last').append(formattedName);
-	$('#cat-entry:last').append(formattedImg);
-	$('#cat-entry:last').append(formattedCount);
-	$('#cat-entry:last').append(formattedClicker);
-}*/
-	$('#cats').append("<div class='cat-entry'></div>");
-	$('#cat-entry:last').append("<div class = 'name'><h2>Grey</h2></div>");
-	$('#cat-entry:last').append("<img id='cat1' src='images/cat1.jpg' alt='This is a picture of a cat.'></img>");
-	$('#cat-entry:last').append("<p id='count1'> 0 </p></div>");
-	$('#cat-entry:last').append("<script>$('#cat2').click(function(e) {var count =Number($('#count1').html())+1;$('#count1').html(count);});</script>");
+function hideAll(){
+	for (i=1;i<=cats.length; i++){
+		$(cats[i].hide());
+	}
+}
+
+function buttonToCat(idNumber){
+	$('#button'+idNumber).click(function(){
+		hideAll();
+		$('#cat'+idNumber).show();
+	})
+}
+
+function counterToCat(idNumber){
+	var cat = "#cat"+idNumber;
+	$(cat).click(function(){
+		var count = $(cat+"> .counter").text();
+		count = parseInt(count)+1;
+		$(cat+">.counter").text(count);
+	})
+}
+
+for (i=1; i<= buttons.length; i++){
+	buttonToCat(i);
+	counterToCat(i);
+}
+
+hideAll();
+$("#cat1").show();
